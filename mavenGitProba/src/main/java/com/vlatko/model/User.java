@@ -1,13 +1,14 @@
 package com.vlatko.model;
 
-import javax.annotation.Generated;
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class User {
+public class User implements Serializable {
 
 	
 	private Long id;
@@ -16,7 +17,7 @@ public class User {
 	private String password;
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column
 	public Long getId() {
 		return id;
