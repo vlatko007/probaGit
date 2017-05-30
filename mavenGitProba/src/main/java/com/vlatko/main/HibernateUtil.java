@@ -1,7 +1,6 @@
 package com.vlatko.main;
 
 
-import com.vlatko.model.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
@@ -19,10 +18,9 @@ public class HibernateUtil {
         if(session == null){       
         
         Configuration c = new Configuration()
-                .addPackage("com.vlatko.main")
-                .addPackage("com.vlatko.model")
-                 .addAnnotatedClass(User.class);
-        c.configure();
+        		.addPackage("com.vlatko.main")
+        		.addClass(User.class);
+        c.configure("/hibernate.cfg.xml");
         ServiceRegistry sr = new StandardServiceRegistryBuilder().applySettings(c.getProperties()).build();
         sessionFactory =  c.buildSessionFactory(sr);
         session = sessionFactory.openSession();        

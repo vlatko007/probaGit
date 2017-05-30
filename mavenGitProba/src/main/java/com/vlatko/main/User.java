@@ -1,4 +1,4 @@
-package com.vlatko.model;
+package com.vlatko.main;
 
 import java.io.Serializable;
 import javax.persistence.Column;
