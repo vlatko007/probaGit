@@ -19,7 +19,7 @@ public class HibernateUtil {
         
         Configuration c = new Configuration()
         		.addPackage("com.vlatko.main")
-        		.addClass(User.class);
+        		.addAnnotatedClass(User.class);
         c.configure("/hibernate.cfg.xml");
         ServiceRegistry sr = new StandardServiceRegistryBuilder().applySettings(c.getProperties()).build();
         sessionFactory =  c.buildSessionFactory(sr);
