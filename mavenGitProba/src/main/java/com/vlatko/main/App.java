@@ -1,18 +1,26 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.vlatko.main;
 
+import org.hibernate.Session;
+
+import com.vlatko.model.User;
+
 /**
+ * Hello world!
  *
- * @author Vlatko
  */
-public class App {
-    
-    public static void main(String[] args) {
-        System.out.println("Hello World"
-                + "");
+public class App 
+{
+    public static void main( String[] args ){
+       
+        Session session = HibernateUtil.getSession();
+      //  session.beginTransaction();
+       
+        User user1 = new User();
+        user1.setUsername("hello1234");
+        user1.setPassword("world");
+        session.save(user1);
+        
+      //  session.getTransaction().commit();
+        session.close();
     }
 }
